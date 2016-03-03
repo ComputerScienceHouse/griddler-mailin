@@ -15,14 +15,15 @@ module Griddler
       end
 
       def normalize_params
-        {
-          to: parse_recipients(params['to']),
+        params = {
+          to: params['envelopeTo']['address'],
           cc: parse_recipients(params['cc']),
-          from: parse_recipients(params['from']).first,
+          from: params['envelopeFrom']['address']).first,
           subject: params['subject'],
           text: params['text'],
           html: params['html'],
         }
+        params[:to] =
       end
 
       private
