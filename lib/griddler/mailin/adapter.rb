@@ -17,8 +17,8 @@ module Griddler
       def normalize_params
         params = {
           to: params['envelopeTo']['address'],
-          cc: parse_recipients(params['cc']),
-          from: params['envelopeFrom']['address']).first,
+          cc: parse_recipients(params['cc'],
+          from: params['envelopeFrom']['address'].first,
           subject: params['subject'],
           text: params['text'],
           html: params['html'],
